@@ -44,12 +44,6 @@ if (!class_exists('ITSP_GF_WCAG20_Form_Fields')) {
 				$error .= '<li><a href="'.$referrer.'#field_'.$form['id'].'_'.$field['id'].'">'.$field[label].' - '.(( "" == $field[errorMessage]) ? $failed_message:$field[errorMessage]).'</a></li>';
 				$errorAlert .= '\n\n'. $field[label].' - '.(( "" == $field[errorMessage]) ? $failed_message:$field[errorMessage]);
 				
-				// replace <br> with new line 
-				$errorAlert =  str_replace(strtolower("<br>"),"\\n\\n",$errorAlert);
-				// replace <br/> with new line 
-				$errorAlert =  str_replace(strtolower("<br/>"),"\\n\\n",$errorAlert);
-				// replace <br /> with new line 
-				$errorAlert =  str_replace(strtolower("<br />"),"\\n\\n",$errorAlert);
 				}
 				
 			}
@@ -61,7 +55,6 @@ if (!class_exists('ITSP_GF_WCAG20_Form_Fields')) {
 			$javascript .= "(function ($) {'use strict';$(function () {";
 			$javascript .= "$(document).bind('gform_post_render', function(){";
 			$javascript .= "window.setTimeout(function(){";
-			//$javascript .= "alert('".$prompt.$errorAlert."');";
 			$javascript .= "window.location.hash = '#error';";
 			$javascript .= "$(this).find('.validation_error').focus();";
 			$javascript .= "$(this).scrollTop($('.validation_error').offset().top);";
@@ -214,7 +207,8 @@ if (!class_exists('ITSP_GF_WCAG20_Form_Fields')) {
          */
 		public function queue_scripts($form, $is_ajax) {
 			if ( !is_admin() ) {
-				add_action( 'wp_enqueue_scripts', array( &$this,'css_styles' ) );
+				//add_action( 'wp_enqueue_scripts', array( &$this,'css_styles' ) );
+				wp_enqueue_style( 'gfwcag-css', plugins_url( 'gf_wcag20_form_fields.css', __FILE__ ) );
 			}
 		} // END queue_scripts
 		
