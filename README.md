@@ -37,6 +37,12 @@ Please take the time to review the plugin. Your feedback shows the need for Grav
 * This plugin does not cover other aspects of accessibility, such as content order, clear instructions, colour contrast etc.
 * You will also need to ensure that your websites theme is accessible. 
 
+**Disclaimer**
+
+*Gravity Forms is a trademark of Rocketgenius, Inc.*
+
+*This plugins is provided “as is” without warranty of any kind, expressed or implied. The author shall not be liable for any damages, including but not limited to, direct, indirect, special, incidental or consequential damages or losses that occur out of the use or inability to use the plugin.*
+
 == Installation ==
 
 1. This plugin requires the Gravity Forms plugin, installed and activated
@@ -87,6 +93,18 @@ Each change the plugin makes to a Gravity Form has been decided through research
 2. Shows list field with 'buttons' instead of images to add and delete rows - buttons are styled like the previous images but are keyboard accessible. 
 
 == Changelog ==
+
+= 1.3.0 =
+* FEATURE: Add support for multisite WordPress installations.
+
+= 1.2.11 =
+* Maintenance: change plugin name from 'Gravity Forms - WCAG 2.0 form fields' to 'WCAG 2.0 form fields for Gravity Forms'
+* Maintenance: change constructor so plugin load is delayed using the 'plugins_loaded' action - this ensures the plugin loads after Gravity Forms has loaded and functions correctly.
+* Maintenance: resolve various PHP errors that were appearing in debug mode, but did not affect functionality.
+
+= 1.2.10 =
+
+* Fix: change field layout for radio and checkboxes to allow a checkbox/radio field to not use a fieldset if only one option exists.
 
 = 1.2.9 =
 
