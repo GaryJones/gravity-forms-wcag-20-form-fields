@@ -11,7 +11,6 @@ Text Domain: gravity-forms-wcag-20-form-fields
 */
 
 add_action('admin_notices', array('ITSP_GF_WCAG20_Form_Fields', 'admin_warnings'), 20);
-load_plugin_textdomain( 'gravity-forms-wcag-20-form-fields', false, dirname( plugin_basename( __FILE__ ) ) . '/lang' );
 
 if (!class_exists('ITSP_GF_WCAG20_Form_Fields')) {
     class ITSP_GF_WCAG20_Form_Fields
@@ -35,6 +34,7 @@ if (!class_exists('ITSP_GF_WCAG20_Form_Fields')) {
          */
 		function register_actions() {
             if ((self::is_gravityforms_installed())) {
+	            load_plugin_textdomain( 'gravity-forms-wcag-20-form-fields' );
 				//start plug in
 				add_filter('gform_column_input_content',  array(&$this,'change_column_add_title_wcag'), 10, 6);
 				add_filter('gform_field_content',  array(&$this,'change_fields_content_wcag'), 10, 5);
